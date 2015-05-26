@@ -1,18 +1,44 @@
 ---
 layout: default
-css: /css/page.css
+css: /css/endpoints.css
 js: /js/page.js
 ---
 
-{{ content }}
+<div>
+    <div class="left_side title">
+        {{ page.title }}
+    </div>
+    <div class="right_side">
+        {{ content }}
+    </div>
+</div>
 
 {% assign this_dir = page.path | remove_first: page.name | split: "" | reverse | join: "" | remove_first: "/" | split: "" | reverse | join: "" | prepend: "/" %}
 {% assign endpoints = site.pages | where: "dir",this_dir %}
 
-{% for i in endpoints %}
-    {% if i.name != page.name %}
-        <div>
-            {{ i.content }}
-        </div>
-    {% endif %}
-{% endfor %}
+<div>
+    {% for i in endpoints %}
+        {% if i.name != page.name %}
+            <div class="left_side">
+                {% if i.title %}
+                    <div class="title">
+                        {{ i.title }}
+                    </div>
+                {% endif %}
+                {% if i.authentication %}
+                    <div class="more_info">
+                        Authentication: {{ i.authentication }}
+                    </div>
+                {% endif %}
+                {% if i.apiVersion %}
+                    <div class="more_info">
+                        Api Version: {{ i.apiVersion }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="right_side">
+                {{ i.content }}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

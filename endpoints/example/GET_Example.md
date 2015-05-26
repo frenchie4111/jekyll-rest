@@ -1,7 +1,16 @@
 ---
 layout: endpoint
-name: GET /example
-method: GET
+title: GET /example
+authentication: Token / Api Key
+apiVersion: 1
 ---
 
-Test
+Because we can, we return values from this endpoint that represent random latin text
+
+Response
+
+```javascript
+{
+    "text": "Lorem Ipsum"
+}
+```
