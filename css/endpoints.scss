@@ -22,6 +22,7 @@
     }
 
     .titles {
+        background-color: $left;
         width: 30%;
         min-width: 200px;
         text-align: right;
@@ -34,9 +35,8 @@
 
     .info {
         @include flex( 1 );
-        background-color: black;
+        background-color: $right;
         color: white;
-        padding-left: 6px;
-        padding-bottom: 15px;
+        padding: 0 6px 15px 6px;
     }
 }

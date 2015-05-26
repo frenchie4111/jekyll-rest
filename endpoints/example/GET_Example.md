@@ -9,8 +9,8 @@ Because we can, we return values from this endpoint that represent random latin 
 
 Response
 
-```
+{% highlight json %}
 {
     "text": "Lorem Ipsum"
 }
-```
+{% endhighlight %}

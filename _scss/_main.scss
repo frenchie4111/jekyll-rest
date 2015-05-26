@@ -2,13 +2,21 @@
 
 @import "reset";
 @import "flexbox";
+@import "colors";
+
+@import "code.json";
 
 body {
-    background-color: white;
+    color: $text;
 
     font-family: 'San Francisco Display', sans-serif;
     font-weight: lighter;
     font-size: 20px;
 
     height: 100%;
+}
+
+.highlight {
+    margin-top: 8px;
+    padding: 8px 10px 10px 10px;
 }
