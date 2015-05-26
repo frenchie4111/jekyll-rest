@@ -4,9 +4,11 @@ css: /css/endpoints.css
 js: /js/page.js
 ---
 
-<div>
+<div class="container">
     <div class="left_side title">
-        {{ page.title }}
+        <div class="title">
+            {{ page.title }}
+        </div>
     </div>
     <div class="right_side">
         {{ content }}
@@ -16,7 +18,7 @@ js: /js/page.js
 {% assign this_dir = page.path | remove_first: page.name | split: "" | reverse | join: "" | remove_first: "/" | split: "" | reverse | join: "" | prepend: "/" %}
 {% assign endpoints = site.pages | where: "dir",this_dir %}
 
-<div>
+<div class="container">
     {% for i in endpoints %}
         {% if i.name != page.name %}
             <div class="left_side">

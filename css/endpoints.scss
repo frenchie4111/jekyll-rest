@@ -4,3 +4,22 @@
 
 @import "main";
 
+.container {
+    @include flexbox();
+
+    .left_side {
+        width: 30%;
+        min-width: 200px;
+        text-align: right;
+
+        .title {
+            font-weight: bold;
+        }
+    }
+
+    .right_side {
+        @include flex( 1 );
+        background-color: black;
+        color: white;
+    }
+}

@@ -32,3 +32,25 @@ table {
 
 body {
   background-color: white; }
+
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .container .left_side {
+    width: 30%;
+    min-width: 200px;
+    text-align: right; }
+    .container .left_side .title {
+      font-weight: bold; }
+  .container .right_side {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background-color: black;
+    color: white; }
