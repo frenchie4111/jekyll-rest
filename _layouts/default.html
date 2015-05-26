@@ -1,2 +1,12 @@
-before
-{{ content }}
+<html>
+    <head>
+        <title>{{ page.title || 'Rest Documentation' }}</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ page.css }}">
+
+        <script type="text/javascript" src="{{ page.js }}"></script>
+    </head>
+    <body>
+        {{ content }}
+    </body>
+</html>
