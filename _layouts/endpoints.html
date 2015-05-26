@@ -4,43 +4,49 @@ css: /css/endpoints.css
 js: /js/page.js
 ---
 
-<div class="container">
-    <div class="left_side title">
-        <div class="title">
-            {{ page.title }}
+<div class="master_container">
+    <div class="container">
+        <div class="titles title">
+            <div class="title">
+                {{ page.title }}
+            </div>
+        </div>
+        <div class="info">
+            {{ content }}
         </div>
     </div>
-    <div class="right_side">
-        {{ content }}
+
+    {% assign this_dir = page.path | remove_first: page.name | split: "" | reverse | join: "" | remove_first: "/" | split: "" | reverse | join: "" | prepend: "/" %}
+    {% assign endpoints = site.pages | where: "dir",this_dir %}
+
+    <div class="container">
+        {% for i in endpoints %}
+            {% if i.name != page.name %}
+                <div class="titles">
+                    {% if i.title %}
+                        <div class="title">
+                            {{ i.title }}
+                        </div>
+                    {% endif %}
+                    {% if i.authentication %}
+                        <div class="more_info">
+                            Authentication: {{ i.authentication }}
+                        </div>
+                    {% endif %}
+                    {% if i.apiVersion %}
+                        <div class="more_info">
+                            Api Version: {{ i.apiVersion }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="info">
+                    {{ i.content }}
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
-</div>
-
-{% assign this_dir = page.path | remove_first: page.name | split: "" | reverse | join: "" | remove_first: "/" | split: "" | reverse | join: "" | prepend: "/" %}
-{% assign endpoints = site.pages | where: "dir",this_dir %}
-
-<div class="container">
-    {% for i in endpoints %}
-        {% if i.name != page.name %}
-            <div class="left_side">
-                {% if i.title %}
-                    <div class="title">
-                        {{ i.title }}
-                    </div>
-                {% endif %}
-                {% if i.authentication %}
-                    <div class="more_info">
-                        Authentication: {{ i.authentication }}
-                    </div>
-                {% endif %}
-                {% if i.apiVersion %}
-                    <div class="more_info">
-                        Api Version: {{ i.apiVersion }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="right_side">
-                {{ i.content }}
-            </div>
-        {% endif %}
-    {% endfor %}
+    <div class="container fill">
+        <div class="titles"></div>
+        <div class="info"></div>
+    </div>
 </div>

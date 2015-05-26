@@ -4,22 +4,39 @@
 
 @import "main";
 
+.master_container {
+    @include flexbox();
+    @include flex-direction( column );
+
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+}
+
 .container {
     @include flexbox();
+    line-height: 1.2em;
 
-    .left_side {
+    &.fill {
+        @include flex( 1 );
+    }
+
+    .titles {
         width: 30%;
         min-width: 200px;
         text-align: right;
+        padding-right: 6px;
 
         .title {
             font-weight: bold;
         }
     }
 
-    .right_side {
+    .info {
         @include flex( 1 );
         background-color: black;
         color: white;
+        padding-left: 6px;
+        padding-bottom: 15px;
     }
 }

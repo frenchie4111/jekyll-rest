@@ -9,7 +9,7 @@ Because we can, we return values from this endpoint that represent random latin 
 
 Response
 
-```javascript
+```
 {
     "text": "Lorem Ipsum"
 }
